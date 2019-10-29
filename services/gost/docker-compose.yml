@@ -45,15 +45,15 @@ services:
             - "traefik.enable=true"
             - "traefik.frontend.priority=5"
             - "traefik.frontend.rule=Host:sta.map5.nl; PathPrefixStrip:/"
-            # - "traefik.docker.network=geoqos-network"
+            - "traefik.docker.network=stademo-network"
 
     # SensorThings Dashboard
-    dashboard:
-        image: geodan/gost-dashboard
-        ports:
-            - "8080:8080"
-        depends_on:
-            - gost
+#    dashboard:
+#        image: geodan/gost-dashboard
+#        ports:
+#            - "8080:8080"
+#        depends_on:
+#            - gost
 
 volumes:
     postgis: {}
