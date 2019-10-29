@@ -58,15 +58,15 @@ services:
     # SensorThings Dashboard
     dashboard:
         image: geodan/gost-dashboard
-        labels:
-            - "traefik.backend=gostdashboard"
-            - "traefik.enable=true"
+#        labels:
+#            - "traefik.backend=gostdashboard"
+#            - "traefik.enable=true"
 #            - "traefik.port=8080"
-            - "traefik.frontend.priority=6"
-            - "traefik.frontend.rule=Host:sta.map5.nl; PathPrefixStrip:/dashgost"
-            - "traefik.docker.network=stademo-network"
-#        ports:
-#            - "8080:8080"
+#            - "traefik.frontend.priority=5"
+#            - "traefik.frontend.rule=Host:sta.map5.nl; PathPrefixStrip:/dashgost"
+#            - "traefik.docker.network=stademo-network"
+        ports:
+            - "8080:8080"
         depends_on:
             - gost
 
