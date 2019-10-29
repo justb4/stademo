@@ -7,7 +7,7 @@
 
 SCRIPT_DIR=${0%/*}
 
-SERVICES="traefik ghc geoqos mygeoqos admin"
+SERVICES="gost traefik"
 
 for SERVICE in ${SERVICES}
 do
