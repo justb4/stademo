@@ -12,9 +12,11 @@ services:
     # MQTT Broker
     mosquitto:
         image: toke/mosquitto
+
         volumes:
             - mosquitto_data:/mqtt/data
             - mosquitto_conf:/mqtt/config:ro
+
         ports:
             - "1883:1883"
             - "9001:9001"
@@ -22,29 +24,35 @@ services:
     # SensorThings API DB
     gost-db:
         image: geodan/gost-db
+
         volumes:
             - postgis:/var/lib/postgresql/data
-        environment:
-            POSTGRES_DB: gost
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: postgres
+
+        env_file:
+            - gost.env
 
     # SensorThings API Server
     gost:
         image: geodan/gost
+
         volumes:
             - gost_conf:/gostserver/config
+
         depends_on:
             - mosquitto
             - gost-db
-        environment:
-            GOST_DB_HOST: gost-db
-            GOST_MQTT_HOST: mosquitto
+
+        ports:
+            - "80:8080"
+
+        env_file:
+            - gost.env
+
         labels:
             - "traefik.backend=gost"
             - "traefik.enable=true"
             - "traefik.frontend.priority=5"
-            - "traefik.frontend.rule=Host:sta.map5.nl; PathPrefixStrip:/"
+            - "traefik.frontend.rule=Host:sta.map5.nl; PathPrefixStrip:/gost"
             - "traefik.docker.network=stademo-network"
 
     # SensorThings Dashboard
