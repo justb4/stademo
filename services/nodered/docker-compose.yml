@@ -8,7 +8,7 @@ services:
             - nodered:/data
         ports:
             - "1880:1880"
-            -
+
 volumes:
     nodered: {}
 
