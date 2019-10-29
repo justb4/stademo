@@ -30,5 +30,5 @@ volumes:
 networks:
   default:
     external:
-      name: pygeoapi-network
+      name: stademo-network
 

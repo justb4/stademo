@@ -1,4 +1,4 @@
-version: '2'
+version: "3"
 services:
 
 #    node-red:
@@ -40,6 +40,12 @@ services:
         environment:
             GOST_DB_HOST: gost-db
             GOST_MQTT_HOST: mosquitto
+        labels:
+            - "traefik.backend=gost"
+            - "traefik.enable=true"
+            - "traefik.frontend.priority=5"
+            - "traefik.frontend.rule=Host:sta.map5.nl; PathPrefixStrip:/"
+            # - "traefik.docker.network=geoqos-network"
 
     # SensorThings Dashboard
     dashboard:
@@ -48,9 +54,16 @@ services:
             - "8080:8080"
         depends_on:
             - gost
+
 volumes:
     postgis: {}
     nodered: {}
     gost_conf: {}
     mosquitto_data: {}
     mosquitto_conf: {}
+
+networks:
+    default:
+        external:
+            name: stademo-network
+
