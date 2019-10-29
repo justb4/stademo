@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# This lists status all service components for geoqos stack
+# This lists status all service components for stademo stack
 # You must first have done ./build.sh
 #
 # Just van den Broecke - 2017

@@ -1,0 +1,19 @@
+version: "3"
+services:
+
+    node-red:
+        # image: nodered/node-red-docker:slim-v8
+        image: nodered/node-red-docker:latest
+        volumes:
+            - nodered:/data
+        ports:
+            - "1880:1880"
+            -
+volumes:
+    nodered: {}
+
+networks:
+    default:
+        external:
+            name: stademo-network
+

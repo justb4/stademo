@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# This stops all service components for geoqos stack
+# This stops all service components for stademo stack
 #
-# Just van den Broecke - 2017
+# Just van den Broecke - 2019
 #
 
 SCRIPT_DIR=${0%/*}
 
-SERVICES="gost traefik"
+SERVICES="gost nodered traefik"
 
 for SERVICE in ${SERVICES}
 do
@@ -17,6 +17,6 @@ do
 done
 
 # last remove the Docker network
-docker network rm geoqos-network
+docker network rm stademo-network
 
 ./${SCRIPT_DIR}/status.sh
