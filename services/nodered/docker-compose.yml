@@ -4,6 +4,7 @@ services:
     node-red:
         # image: nodered/node-red-docker:slim-v8
         image: nodered/node-red-docker:latest
+        container_name: nodered
         volumes:
             - nodered:/data
         ports:

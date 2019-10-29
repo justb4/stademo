@@ -5,6 +5,8 @@ services:
     mosquitto:
         image: toke/mosquitto
 
+        container_name: mosquitto
+
         volumes:
             - mosquitto_data:/mqtt/data
             - mosquitto_conf:/mqtt/config:ro
@@ -17,6 +19,8 @@ services:
     gost-db:
         image: geodan/gost-db
 
+        container_name: gost-db
+
         volumes:
             - postgis:/var/lib/postgresql/data
 
@@ -26,6 +30,8 @@ services:
     # SensorThings API Server
     gost:
         image: geodan/gost
+
+        container_name: gost
 
         volumes:
             - gost_conf:/gostserver/config
@@ -50,6 +56,9 @@ services:
     # SensorThings Dashboard
     dashboard:
         image: geodan/gost-dashboard
+
+        container_name: gost-dashboard
+
 #        labels:
 #            - "traefik.backend=gostdashboard"
 #            - "traefik.enable=true"
