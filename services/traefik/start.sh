@@ -2,7 +2,7 @@
 
 
 # Stop and remove possibly old containers
-stop.sh
+./stop.sh
 
 # Finally run. optionally create protected acme.json
 export HOSTNAME
