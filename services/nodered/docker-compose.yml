@@ -5,10 +5,16 @@ services:
         # image: nodered/node-red-docker:slim-v8
         image: nodered/node-red-docker:latest
         container_name: nodered
+        labels:
+            - "traefik.backend=gost"
+            - "traefik.enable=true"
+            - "traefik.frontend.priority=50"
+            - "traefik.frontend.rule=Host:sta.map5.nl; PathPrefixStrip:/nodered"
+            - "traefik.docker.network=stademo-network"
         volumes:
             - nodered:/data
-        ports:
-            - "1880:1880"
+#        ports:
+#            - "1880:1880"
 
 volumes:
     nodered: {}
