@@ -9,7 +9,7 @@ services:
             - "traefik.backend=gost"
             - "traefik.enable=true"
             - "traefik.frontend.priority=50"
-            - "traefik.frontend.rule=Host:sta.map5.nl; PathPrefix:/nodered"
+            - "traefik.frontend.rule=Host:sta.map5.nl; PathPrefix:/red"
             - "traefik.docker.network=stademo-network"
         volumes:
             - nodered:/data

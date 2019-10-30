@@ -101,8 +101,7 @@ module.exports = {
 
     // The following property can be used in place of 'httpAdminRoot' and 'httpNodeRoot',
     // to apply the same root to both parts.
-    //httpRoot: '/red',
-    httpRoot: '/nodered',
+    httpRoot: '/red',
 
     // When httpAdminRoot is used to move the UI to a different root path, the
     // following property can be used to identify a directory of static content
@@ -244,7 +243,7 @@ module.exports = {
     // palette. If a node's category is not in the list, the category will get
     // added to the end of the palette.
     // If not set, the following default order is used:
-    //paletteCategories: ['subflows', 'input', 'output', 'function', 'social', 'mobile', 'storage', 'analysis', 'advanced'],
+    //paletteCategories: ['subflows','flow','input','output','function','parser','social','mobile','storage','analysis','advanced'],
 
     // Configure the logging output
     logging: {
