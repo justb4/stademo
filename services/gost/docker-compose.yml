@@ -25,7 +25,7 @@ services:
             - postgis:/var/lib/postgresql/data
 
         env_file:
-            - gost.env
+            - postgres.env
 
     # SensorThings API Server
     gost:
@@ -34,7 +34,7 @@ services:
         container_name: gost
 
         volumes:
-            - gost_conf:/gostserver/config
+            - ./gost-config.yaml:/app/config.yaml
 
         depends_on:
             - mosquitto
@@ -42,10 +42,6 @@ services:
 
 #        ports:
 #            - "80:8080"
-
-        env_file:
-            - gost.env
-
         labels:
             - "traefik.backend=gost"
             - "traefik.enable=true"
@@ -68,12 +64,12 @@ services:
 #            - "traefik.docker.network=stademo-network"
         ports:
             - "8080:8080"
+
         depends_on:
             - gost
 
 volumes:
     postgis: {}
-    gost_conf: {}
     mosquitto_data: {}
     mosquitto_conf: {}
 
