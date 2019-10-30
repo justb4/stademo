@@ -21,7 +21,7 @@ database:
 mqtt:
     enabled: true
     verbose: true
-    host: moquitto
+    host: mosquitto
     port: 1883
     prefix: GOST
     clientId: gost
