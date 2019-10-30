@@ -48,7 +48,8 @@ services:
             - "traefik.frontend.priority=5"
             - "traefik.frontend.rule=Host:sta.map5.nl; PathPrefixStrip:/gost"
             - "traefik.docker.network=stademo-network"
-
+            - "traefik.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*"
+            
     # SensorThings Dashboard
     dashboard:
         image: geodan/gost-dashboard
